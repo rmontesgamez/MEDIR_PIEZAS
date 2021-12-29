@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "MEDIR_PIEZAS", "MEDIR_PIEZAS\MEDIR_PIEZAS.pyproj", "{086CC663-3F49-4EDE-9F1A-FFD5FE958601}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{086CC663-3F49-4EDE-9F1A-FFD5FE958601}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{086CC663-3F49-4EDE-9F1A-FFD5FE958601}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2C0D1C55-9928-428D-9746-80E7D10AD0F1}
+	EndGlobalSection
+EndGlobal
