@@ -1,4 +1,4 @@
-import cv2 as cv
+import opencv as cv
 import numpy as np
 from scipy.spatial import distance as dist
 # Definir el cálculo de coordenadas del punto medio
@@ -12,8 +12,8 @@ def measure(img):
 	 # Calcula las coordenadas de las 4 esquinas del cuadrado negro
 	contours, hierarchy = cv.findContours(thresh, 1, 2)
 	for cnt in contours:
-	 # Encuentra la distancia geométrica del contorno   
-    	M = cv.moments(cnt)
+	 # Encuentra la distancia geométrica del contorno
+	  	M = cv.moments(cnt)
     	     # Obtenga el rectángulo circunscrito del contorno, x, y son las coordenadas de píxeles de la esquina superior izquierda del marco verde, w, h son la longitud y el ancho del marco verde
     	x, y, w, h = cv.boundingRect(cnt)
     	     # Calcule el contorno mínimo, cuadro rojo
@@ -35,7 +35,7 @@ def measure(img):
         	         #Pintando cuadro rojo 4 esquinas
         	cv.drawContours(img, [box], 0, (0, 0, 255), 2)
         	for (x, y) in box:
-            	cv2.circle(img, (int(x), int(y)), 5, (0, 0, 255), -1)
+                cv.circle(img, (int(x), int(y)), 5, (0, 0, 255), -1)
             	             # tl coordenadas del número de la imagen de la esquina superior izquierda, tr coordenadas del número de la imagen de la esquina superior derecha, br coordenadas del número de la imagen de la esquina inferior derecha, bl coordenadas del número de la imagen de la esquina inferior izquierda
             	(tl, tr, br, bl) = box
             	             # Calcule los puntos centrales de los 4 lados del cuadro rojo
@@ -63,27 +63,27 @@ def measure(img):
             	dimB = dB / 6.5
             	             # Imprima el resultado del cálculo en la imagen original, que es el contenido amarillo
 
-            	cv2.putText(img, "{:.1f}mm".format(dimA),
+            	cv.putText(img, "{:.1f}mm".format(dimA),
                         (int(tltrX - 15), int(tltrY - 10)), cv2.FONT_HERSHEY_SIMPLEX,
                         0.65, (0, 255, 255), 2)
-            	cv2.putText(img, "{:.1f}mm".format(dimB),
+            	cv.putText(img, "{:.1f}mm".format(dimB),
                         (int(trbrX + 10), int(trbrY)), cv2.FONT_HERSHEY_SIMPLEX,
                         0.65, (0, 255, 255), 2)
 	cv.imshow("mo", img)
  # Enciende la cámara, configura la resolución
-cap = cv2.VideoCapture(0)
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, 800)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 600)
+cap = cv.VideoCapture(0)
+cap.set(cv.CAP_PROP_FRAME_WIDTH, 800)
+cap.set(cv.CAP_PROP_FRAME_HEIGHT, 600)
 while(cap.isOpened()):
 	ret, frame = cap.read()
 	img = cv2.flip(frame, -1)
 	 #Cree una ventana GUI en forma de adaptación
-	cv2.namedWindow("input image", cv2.WINDOW_AUTOSIZE)
+	cv.namedWindow("input image", cv2.WINDOW_AUTOSIZE)
 	 #Conecta la imagen a la ventana por nombre
-	cv2.imshow("input image", img)
+	cv.imshow("input image", img)
 	measure(img)
 	 # Si presiona la tecla P, la imagen se guardará en D: / Archivos de programa / kk.jpg y saldrá
-	if cv2.waitKey(1) & 0xFF == ord('p'):
-    	cv2.imwrite("D:/Program Files/kk.jpg", img)
+	if cv.waitKey(1) & 0xFF == ord('p'):
+        cv.imwrite("D:/Program Files/kk.jpg", img)
     	break
 
